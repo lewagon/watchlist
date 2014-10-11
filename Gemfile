@@ -16,6 +16,8 @@ gem 'devise'
 gem 'quiet_assets'
 gem 'figaro'
 gem 'sidekiq'
+gem 'aws-sdk'
+gem 'paperclip'
 
 
 group :production do

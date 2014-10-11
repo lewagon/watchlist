@@ -9,6 +9,7 @@ class ImdbWorker
     imdb_movie = candidates.first
     movie.title = imdb_movie.title(true)
     movie.rating = imdb_movie.rating
+    movie.poster = imdb_movie.poster
     movie.save!
   end
 end

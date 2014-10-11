@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= image_tag @movie.poster.url(:medium) %>
 
 <p>
   <strong>Title:</strong>
@@ -8,11 +8,6 @@
 <p>
   <strong>Rating:</strong>
   <%= @movie.rating %>
-</p>
-
-<p>
-  <strong>Poster:</strong>
-  <%= @movie.poster %>
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
