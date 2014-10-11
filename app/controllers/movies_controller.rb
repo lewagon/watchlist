@@ -2,44 +2,47 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.all
-    respond_with(@movies)
+    @movies = current_user.movies.all
   end
 
   def show
-    respond_with(@movie)
   end
 
   def new
-    @movie = Movie.new
-    respond_with(@movie)
+    @movie = current_user.movies.build
   end
 
   def edit
   end
 
   def create
-    @movie = Movie.new(movie_params)
-    @movie.save
-    respond_with(@movie)
+    @movie = current_user.movies.build(movie_params)
+    if @movie.save
+      redirect_to @movie
+    else
+      render :new
+    end
   end
 
   def update
-    @movie.update(movie_params)
-    respond_with(@movie)
+    if @movie.update(movie_params)
+      redirect_to @movie
+    else
+      render :edit
+    end
   end
 
   def destroy
     @movie.destroy
-    respond_with(@movie)
+    redirect_to movies_path
   end
 
   private
     def set_movie
-      @movie = Movie.find(params[:id])
+      @movie = current_user.movies.find(params[:id])
     end
 
     def movie_params
-      params.require(:movie).permit(:title, :rating, :poster)
+      params.require(:movie).permit(:title)
     end
 end

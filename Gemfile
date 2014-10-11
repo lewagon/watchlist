@@ -13,6 +13,7 @@ gem 'spring',        group: :development
 gem 'imdb'
 gem 'unicorn'
 gem 'devise'
+gem 'quiet_assets'
 
 
 group :production do
