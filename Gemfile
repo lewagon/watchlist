@@ -15,6 +15,7 @@ gem 'unicorn'
 gem 'devise'
 gem 'quiet_assets'
 gem 'figaro'
+gem 'sidekiq'
 
 
 group :production do
