@@ -14,6 +14,7 @@ gem 'imdb'
 gem 'unicorn'
 gem 'devise'
 gem 'quiet_assets'
+gem 'figaro'
 
 
 group :production do
