@@ -5,7 +5,7 @@ class ImdbWorker
 
   def perform(movie_id)
     movie = Movie.find(movie_id)
-    candidates = Imdb::Search.new(movie.title)
+    candidates = Imdb::Search.new(movie.title).movies
     imdb_movie = candidates.first
     movie.rating = imdb_movie.rating
     movie.save!
